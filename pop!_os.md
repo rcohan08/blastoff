@@ -9,6 +9,8 @@ Using ethernet connection run the following then reboot:
 
     $ sudo apt update
     $ sudo apt upgrade
+    $ sudo apt remove backport-iwlwifi-dkms ## remove old incompatible wifi driver
+    $ sudo apt remove broadcom-sta-dkms ## remove old incompatible wifi driver
     $ sudo apt install bcmwl-kernel-source ## this is to fix wifi adapter issue
     $ sudo apt distro-upgrade
     
