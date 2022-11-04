@@ -5,6 +5,7 @@
 
 # Post-installation Setup
 ## Updates and Fixes
+### No Wifi
 Using ethernet connection run the following then reboot:
 
     $ sudo apt update
@@ -13,7 +14,17 @@ Using ethernet connection run the following then reboot:
     $ sudo apt remove broadcom-sta-dkms ## remove old incompatible wifi driver
     $ sudo apt install bcmwl-kernel-source ## this is to fix wifi adapter issue
     $ sudo apt distro-upgrade
-    
+### Nvidia driver issues
+Symptom: attempting to run `sudo apt update && sudo apt upgrade` results in errors like `Errors were encountered when processing: nvidia-dkms-510
+ nvidia-driver-510`
+
+    $ sudo apt-get remove "*nividia*"
+    $ sudo apt install pop-desktop system76-driver-nvidia
+    $ sudo apt autoremove --purge
+    $ sudo apt update -m
+    $ sudo dpkg --configure -a
+    $ sudo apt install -f
+    $ sudo reboot
 ## Customization
 ### Install gnome-extensions:
 
