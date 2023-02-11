@@ -647,14 +647,14 @@ function __setprompt
 	fi
 
 	# Date
-	PS1+="\[${DARKGRAY}\][\[${CYAN}\]$(date +%a) $(date +%b-'%-m')" # Date
+	PS1+="\[${DARKGRAY}\][\[${LIGHTCYAN}\]$(date +%a) $(date +%b-'%-m')" # Date
 	PS1+="${BLUE} $(date +'%-I':%M:%S%P)\[${DARKGRAY}\]] " # Time
 
 	# CPU
-	PS1+="[\[${MAGENTA}\]CPU $(cpu)%"
+	PS1+="[\[${CYAN}\]CPU $(cpu)%"
 
 	# Jobs
-	PS1+="\[${DARKGRAY}\]:\[${MAGENTA}\]\j"
+	PS1+="\[${DARKGRAY}\]:\[${YELLOW}\]\j"
 
 	# Network Connections (for a server - comment out for non-server)
 	# PS1+="\[${DARKGRAY}\]:\[${MAGENTA}\]Net $(awk 'END {print NR}' /proc/net/tcp)"
@@ -665,13 +665,13 @@ function __setprompt
 	local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
 	local SSH2_IP=`echo $SSH2_CLIENT | awk '{ print $1 }'`
 	if [ $SSH2_IP ] || [ $SSH_IP ] ; then
-		PS1+="[\[${YELLOW}\]\u@\h"
+		PS1+="[\[${LIGHTRED}\]\u@\h"
 	else
-		PS1+="[\[${YELLOW}\]\u"
+		PS1+="[\[${LIGHTRED}\]\u"
 	fi
 
 	# Current directory
-	PS1+="\[${DARKGRAY}\]:\[${BROWN}\]\w\[${DARKGRAY}\]] "
+	PS1+="\[${DARKGRAY}\]:\[${LIGHTBLUE}\]\w\[${DARKGRAY}\]] "
 
 	# Show git branch
 	PS1+="${WHITE}$(parse_git_branch)"
@@ -701,3 +701,5 @@ function __setprompt
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 }
 PROMPT_COMMAND='__setprompt'
+
+eval `dircolors /home/radahn/git/gnome-terminal/dircolors`
