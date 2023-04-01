@@ -43,5 +43,11 @@ https://www.gnome-look.org/
 * Favorite theme - orchis gtk https://www.gnome-look.org/p/1357889/
 * Favorite cursor pack - oreo cursors https://www.gnome-look.org/p/1360254/
 
+### Install zsh and zsh-syntax-highlighting
+https://ohmyz.sh/#install
+https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#in-your-zshrc
+https://draculatheme.com/zsh
+https://draculatheme.com/zsh-syntax-highlighting
+
 ## To Do
 Find some dope icons! 🤘🤘🤘
