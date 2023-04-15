@@ -14,21 +14,21 @@
 
 Using ethernet connection run the following then reboot:
 
-"""bash
+```bash
 sudo apt update
 sudo apt upgrade
 sudo apt remove backport-iwlwifi-dkms ## remove old incompatible wifi driver
 sudo apt remove broadcom-sta-dkms ## remove old incompatible wifi driver
 sudo apt install bcmwl-kernel-source ## this is to fix wifi adapter issue
 sudo apt distro-upgrade
-"""
+```
 
 ### Nvidia driver issues
 
 Symptom: attempting to run `sudo apt update && sudo apt upgrade` results in errors like `Errors were encountered when processing: nvidia-dkms-510
  nvidia-driver-510`
 
-"""bash
+```bash
 sudo apt-get remove "*nividia*"
 sudo apt install pop-desktop system76-driver-nvidia
 sudo apt autoremove --purge
@@ -36,23 +36,23 @@ sudo apt update -m
 sudo dpkg --configure -a
 sudo apt install -f
 sudo reboot
-"""
+```
 
 ## Customization
 
 ### Install gnome-extensions
 
-"""bash
+```bash
 sudo apt install chrome-gnome-shell
-"""
+```
 
 <https://extensions.gnome.org/>
 
 ### Install gnome-tweaks
 
-"""bash
+```bash
 sudo apt install gnome-tweaks
-"""
+```
 
 ### Install ocs-url
 
@@ -74,7 +74,7 @@ sudo apt install gnome-tweaks
 
 ### Brave Browser
 
-"""bash
+```bash
 sudo apt install curl
 
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg <https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg>
@@ -84,7 +84,7 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] <htt
 sudo apt update
 
 sudo apt install brave-browser
-"""
+```
 
 ## To Do
 
