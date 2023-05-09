@@ -39,7 +39,7 @@ shopt -s histappend
 PROMPT_COMMAND='history -a'
 
 # Allow ctrl-S for history navigation (with ctrl-R)
-stty -ixon
+# stty -ixon
 
 # Ignore case on auto-completion
 # Note: bind used instead of sticking these in .inputrc
@@ -587,21 +587,15 @@ function __setprompt
 
 	# Define colors
 	local LIGHTGRAY="\033[0;37m"
-	local WHITE="\033[1;37m"
-	local BLACK="\033[0;30m"
+	local WHITE="\[$(tput setaf 7)\]"
+	local BLACK="\[$(tput setaf 0)\]"
 	local DARKGRAY="\033[1;30m"
-	local RED="\033[0;31m"
-	local LIGHTRED="\033[1;31m"
-	local GREEN="\033[0;32m"
-	local LIGHTGREEN="\033[1;32m"
-	local BROWN="\033[0;33m"
-	local YELLOW="\033[1;33m"
-	local BLUE="\033[0;34m"
-	local LIGHTBLUE="\033[1;34m"
-	local MAGENTA="\033[0;35m"
-	local LIGHTMAGENTA="\033[1;35m"
-	local CYAN="\033[0;36m"
-	local LIGHTCYAN="\033[1;36m"
+	local RED="\[$(tput setaf 1)\]"
+	local GREEN="\[$(tput setaf 2)\]"
+	local YELLOW="\[$(tput setaf 3)\]"
+	local BLUE="\[$(tput setaf 4)\]"
+	local MAGENTA="\[$(tput setaf 5)\]"
+	local CYAN="\[$(tput setaf 6)\]"
 	local NOCOLOR="\033[0m"
 
 	# Show error exit code if there is one
@@ -647,14 +641,14 @@ function __setprompt
 	fi
 
 	# Date
-	PS1+="\[${DARKGRAY}\][\[${LIGHTCYAN}\]$(date +%a) $(date +%b-'%-m')" # Date
+	PS1+="\[${DARKGRAY}\][\[${CYAN}\]$(date +%a) $(date +%b-'%-m')" # Date
 	PS1+="${BLUE} $(date +'%-I':%M:%S%P)\[${DARKGRAY}\]] " # Time
 
 	# CPU
-	PS1+="[\[${CYAN}\]CPU $(cpu)%"
+	PS1+="[\[${GREEN}\]CPU $(cpu)%"
 
 	# Jobs
-	PS1+="\[${DARKGRAY}\]:\[${YELLOW}\]\j"
+	PS1+="\[${DARKGRAY}\]:\[${GREEN}\]\j"
 
 	# Network Connections (for a server - comment out for non-server)
 	# PS1+="\[${DARKGRAY}\]:\[${MAGENTA}\]Net $(awk 'END {print NR}' /proc/net/tcp)"
@@ -665,13 +659,13 @@ function __setprompt
 	local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
 	local SSH2_IP=`echo $SSH2_CLIENT | awk '{ print $1 }'`
 	if [ $SSH2_IP ] || [ $SSH_IP ] ; then
-		PS1+="[\[${LIGHTRED}\]\u@\h"
+		PS1+="[\[${RED}\]\u@\h"
 	else
-		PS1+="[\[${LIGHTRED}\]\u"
+		PS1+="[\[${RED}\]\u"
 	fi
 
 	# Current directory
-	PS1+="\[${DARKGRAY}\]:\[${LIGHTBLUE}\]\w\[${DARKGRAY}\]] "
+	PS1+="\[${DARKGRAY}\]:\[${BLUE}\]\w\[${DARKGRAY}\]] "
 
 	# Show git branch
 	PS1+="${WHITE}$(parse_git_branch)"
@@ -702,4 +696,4 @@ function __setprompt
 }
 PROMPT_COMMAND='__setprompt'
 
-eval `dircolors /home/radahn/git/gnome-terminal/dircolors`
+eval `dircolors /home/radahn/git/dracula/gnome-terminal/dircolors`
