@@ -27,4 +27,5 @@ https://roadmap.sh/backend
 [Placeholder images](https://picsum.photos/)  
 [Documentation via SVC](https://gitbook.com/)  
 [Interface design](https://figma.com/)  
-[Animations](https://lottiefiles.com/)
+[Animations](https://lottiefiles.com/)  
+[JWT cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html#token-sidejacking)
